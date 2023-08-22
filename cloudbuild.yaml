@@ -4,19 +4,19 @@ steps:
     args: [
             'build',
             '-t',
-            'us-docker.pkg.dev/tarea-396620/python-repo/my-app:${SHORT_SHA}',
+            'us-central1-docker.pkg.dev/tarea-396620/python-repo/my-app:${SHORT_SHA}',
             '-t',
-            'us-docker.pkg.dev/tarea-396620/python-repo/my-app:latest',
+            'us-central1-docker.pkg.dev/tarea-396620/python-repo/my-app:latest',
             '--cache-from',
-            'us-docker.pkg.dev/tarea-396620/python-repo/my-app:latest',
+            'us-central1-docker.pkg.dev/tarea-396620/python-repo/my-app:latest',
             '.'
           ]
 
   # Docker push to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push',  'us-docker.pkg.dev/tarea-396620/python-repo/my-app:${SHORT_SHA}']
+    args: ['push',  'us-central1-docker.pkg.dev/tarea-396620/python-repo/my-app:${SHORT_SHA}']
 
 # Store images in Google Artifact Registry 
 images:
-  - us-docker.pkg.dev/tarea-396620/python-repo/my-app:${SHORT_SHA}
-  - us-docker.pkg.dev/tarea-396620/python-repo/my-app:latest
+  - us-central1-docker.pkg.dev/tarea-396620/python-repo/my-app:${SHORT_SHA}
+  - us-central1-docker.pkg.dev/tarea-396620/python-repo/my-app:latest
